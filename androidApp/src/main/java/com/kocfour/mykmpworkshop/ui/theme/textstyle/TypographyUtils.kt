@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import com.kocfour.mykmpworkshop.android.R
-import com.kocfour.mykmpworkshop.ui.theme.PrimaryTextColor
 import com.kocfour.mykmpworkshop.ui.theme.WhiteColor
 
 
