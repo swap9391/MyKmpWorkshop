@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.android.R
-import com.kocfour.mykmpworkshop.ui.components.MyTextView
+import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import kotlinx.coroutines.delay
 
@@ -47,7 +47,7 @@ import kotlinx.coroutines.delay
                  })
          )
 
-         delay(3000)
+         delay(1500L)
 
          navHostController.navigate("login_screen"){
              popUpTo("splash_screen"){

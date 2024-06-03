@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import com.kocfour.mykmpworkshop.android.R
+import com.kocfour.mykmpworkshop.ui.theme.TextHintColor
 import com.kocfour.mykmpworkshop.ui.theme.WhiteColor
 
 
@@ -57,6 +58,11 @@ class TypographyUtils {
                     color = WhiteColor,
                     lineHeight = TextUnit(28f, TextUnitType.Sp)
                 )
+                MyTextStyle.Title4 -> return TextStyle(
+                    fontSize = 14.sp,
+                    color = TextHintColor,
+                    lineHeight = TextUnit(28f, TextUnitType.Sp)
+                )
 
                 MyTextStyle.Body -> return TextStyle(
                     fontSize = 17.sp,
@@ -83,6 +89,12 @@ class TypographyUtils {
                     color = WhiteColor,
                     letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
                     lineHeight = TextUnit(26.14F, TextUnitType.Sp)
+                )
+
+                MyTextStyle.TextFieldHint -> return TextStyle(
+                    fontSize = 12.sp,
+                    color = TextHintColor,
+                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
                 )
             }
         }

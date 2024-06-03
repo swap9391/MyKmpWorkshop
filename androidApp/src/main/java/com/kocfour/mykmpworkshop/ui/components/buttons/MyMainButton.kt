@@ -15,7 +15,7 @@ import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kocfour.mykmpworkshop.ui.components.MyTextView
+import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.WhiteColor
 import com.kocfour.mykmpworkshop.ui.theme.WhiteDisableColor

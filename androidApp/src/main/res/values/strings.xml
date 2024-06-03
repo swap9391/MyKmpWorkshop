@@ -5,6 +5,9 @@
     <string name="text_drop_water_tracker">Drops Water Tracker</string>
     <string name="text_drop_water_tracker_subtitle">Stay hydrated and track your daily water intake</string>
     <string name="text_next">Next</string>
-
+    <string name="text_login_screen">Login Screen</string>
+    <string name="text_securely_login_to_your_account">Securely login to your account</string>
+    <string name="text_hint_email">Enter address</string>
+    <string name="text_hint_password">Password</string>
 
 </resources>
