@@ -1,10 +1,8 @@
 package com.kocfour.mykmpworkshop.ui.components.edittext
 
-import android.text.InputType
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -17,9 +15,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.InputMode
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -28,13 +24,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kocfour.mykmpworkshop.android.R
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
-import com.kocfour.mykmpworkshop.ui.theme.ColorBlueText
 import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryText
-import com.kocfour.mykmpworkshop.ui.theme.ColorPrimaryBlueText
 import com.kocfour.mykmpworkshop.ui.theme.ColorSecondaryText
 import com.kocfour.mykmpworkshop.ui.theme.GreyColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
-import com.kocfour.mykmpworkshop.ui.theme.PrimaryRedTextColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.TypographyUtils
 

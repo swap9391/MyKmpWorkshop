@@ -6,12 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.TypographyUtils
-import com.kocfour.mykmpworkshop.ui.theme.textstyle.TypographyUtils.Companion.MyFontFamily
 
 
 @Composable

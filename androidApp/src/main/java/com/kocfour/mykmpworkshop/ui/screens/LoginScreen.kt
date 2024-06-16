@@ -2,7 +2,6 @@ package com.kocfour.mykmpworkshop.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,23 +16,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.android.R
-import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.buttons.OvalBorderButtonWithIcon
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
 import com.kocfour.mykmpworkshop.ui.components.textView.HyperLinkTextView
-import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryText
+import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
-import kotlin.math.truncate
 
 @Composable
 fun LogInScreen(navHostController: NavHostController) {
