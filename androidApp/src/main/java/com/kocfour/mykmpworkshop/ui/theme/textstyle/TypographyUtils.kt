@@ -1,16 +1,12 @@
 package com.kocfour.mykmpworkshop.ui.theme.textstyle
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import com.kocfour.mykmpworkshop.android.R
-import com.kocfour.mykmpworkshop.ui.theme.TextHintColor
-import com.kocfour.mykmpworkshop.ui.theme.WhiteColor
 
 
 class TypographyUtils {
@@ -20,7 +16,6 @@ class TypographyUtils {
          * The font family used in entire KKTextViewComponent
          */
         val MyFontFamily = FontFamily(
-            Font(R.font.poppins_regular, FontWeight.Normal),
             Font(R.font.poppins_medium, FontWeight.Medium),
             Font(R.font.poppins_light, FontWeight.Light),
             Font(R.font.poppins_bold, FontWeight.Bold),
@@ -32,69 +27,165 @@ class TypographyUtils {
          * The getKKTextStyle function is used to return the TextStyle based on KKTextStyle.
          * @param kkFontStyle The kkFontStyle is having multiple possible values. e.g XLargeTitle, LargeTitle, Title1, Title2 etc. Default is KKTextStyle.Title1
          */
+
+         val myTypography = Typography(
+            bodySmall = TextStyle(
+                fontFamily = MyFontFamily,
+                fontWeight = FontWeight.Light,
+                fontSize = 12.sp
+            ),
+            bodyMedium = TextStyle(
+                fontFamily = MyFontFamily,
+                fontWeight = FontWeight.Light,
+                fontSize = 14.sp
+            ),
+            bodyLarge = TextStyle(
+                fontFamily = MyFontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp
+            )
+
+        )
+
         fun getKKTextStyle(kkFontStyle: MyTextStyle): TextStyle {
             when (kkFontStyle) {
 
-                MyTextStyle.Headline -> return TextStyle(
-                    fontSize = 17.sp,
-                    color = WhiteColor,
-                    lineHeight = TextUnit(25f, TextUnitType.Sp)
-                )
-
-                MyTextStyle.Title1 -> return TextStyle(
-                    fontSize = 28.sp,
-                    color = WhiteColor,
-                    letterSpacing = TextUnit(-0.3F, TextUnitType.Sp),
-                    lineHeight = TextUnit(40f, TextUnitType.Sp)
-                )
-                MyTextStyle.Title2 -> return TextStyle(
-                    fontSize = 14.sp,
-                    color = WhiteColor,
-                    letterSpacing = TextUnit(-0.3F, TextUnitType.Sp),
-                    lineHeight = TextUnit(20f, TextUnitType.Sp)
-                )
-                MyTextStyle.Title3 -> return TextStyle(
-                    fontSize = 20.sp,
-                    color = WhiteColor,
-                    lineHeight = TextUnit(28f, TextUnitType.Sp)
-                )
-                MyTextStyle.Title4 -> return TextStyle(
-                    fontSize = 14.sp,
-                    color = TextHintColor,
-                    lineHeight = TextUnit(28f, TextUnitType.Sp)
-                )
-
-                MyTextStyle.Body -> return TextStyle(
-                    fontSize = 17.sp,
-                    color = WhiteColor,
-                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
-                    lineHeight = TextUnit(25f, TextUnitType.Sp)
-                )
-
-                MyTextStyle.LargeText -> return TextStyle(
-                    fontSize = 20.sp,
-                    color = WhiteColor,
-                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
-                    lineHeight = TextUnit(32.0F, TextUnitType.Sp)
-                )
-                MyTextStyle.XLargeText -> return TextStyle(
-                    fontSize = 28.sp,
-                    color = Color.Black,
-                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
-                    lineHeight = TextUnit(26.14F, TextUnitType.Sp)
-                )
-
-                MyTextStyle.XLargeTextWhite -> return TextStyle(
-                    fontSize = 28.sp,
-                    color = WhiteColor,
-                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
-                    lineHeight = TextUnit(26.14F, TextUnitType.Sp)
-                )
-
-                MyTextStyle.TextFieldHint -> return TextStyle(
+                MyTextStyle.TitleMedium12 -> return TextStyle(
+                    fontFamily = MyFontFamily,
                     fontSize = 12.sp,
-                    color = TextHintColor,
-                    letterSpacing = TextUnit(-0.7F, TextUnitType.Sp),
+                    fontWeight = FontWeight.Medium
+                )
+
+                MyTextStyle.TitleMedium14 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium,
+                )
+
+                MyTextStyle.TitleMedium16 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                )
+
+                MyTextStyle.TitleMedium18 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Medium,
+                )
+
+                MyTextStyle.TitleMedium20 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
+                )
+
+                MyTextStyle.TitleLight10 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleLight12 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleLight14 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleLight16 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleLight18 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleLight20 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
+                MyTextStyle.TitleBold12 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold14 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold16 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold18 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold20 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold22 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleBold24 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+
+                MyTextStyle.TitleSemiBold12 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.SemiBold,
+                )
+
+                MyTextStyle.TitleSemiBold14 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold,
+                )
+
+                MyTextStyle.TitleSemiBold16 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold,
+                )
+
+                MyTextStyle.TitleSemiBold18 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.SemiBold,
+                )
+
+                MyTextStyle.TitleSemiBold20 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.SemiBold,
                 )
             }
         }

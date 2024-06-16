@@ -5,9 +5,28 @@
     <string name="text_drop_water_tracker">Drops Water Tracker</string>
     <string name="text_drop_water_tracker_subtitle">Stay hydrated and track your daily water intake</string>
     <string name="text_next">Next</string>
+
+    <!--Login Screen-->
     <string name="text_login_screen">Login Screen</string>
     <string name="text_securely_login_to_your_account">Securely login to your account</string>
     <string name="text_hint_email">Enter address</string>
     <string name="text_hint_password">Password</string>
+    <string name="text_forgot_password">Forgot Password?</string>>
+    <string name="text_continue_with">- OR Continue with -</string>
+    <string name="text_google">Google</string>
+    <string name="text_facebook">Facebook</string>
+    <string name="text_create_an_account">Create An Account</string>
+    <string name="text_sign_up">Sign Up</string>
+    <string name="text_clicking_continue">By clicking Continue, you agree to our</string>
+    <string name="text_terms_of_service">Terms of Service</string>
+    <string name="text_and">and</string>
+    <string name="text_privacy_policy">Privacy Policy</string>
+
+    <!--Sign Up Screen-->
+    <string name="text_full_name">Full Name</string>
+    <string name="text_enter_contact">Enter Contact Number</string>
+    <string name="text_button_create_account">Create Account</string>
+    <string name="text_already_have_account">I Already Have an Account</string>
+    <string name="text_log_in">Log In</string>
 
 </resources>

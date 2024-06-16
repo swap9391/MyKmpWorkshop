@@ -19,7 +19,10 @@ val TextHintColor = Color(0xFF8E8E8E)
 val PrimaryBlueTextColor = Color(0xFF5DCCFC)
 val PrimaryRedTextColor = Color(0xFFFF0000)
 val GreyColor = Color(0xFFF4F4F4)
+val SecondaryGreyColor = Color(0xFF575757)
 val SecondaryBlueTextColor = Color(0xFFEAF8FE)
+val PrimaryLightBlueTextColor = Color(0xFF50BEFC)
+val PrimaryLightBlueContainerColor = Color(0xFFF4FCFF)
 
 
 

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -25,10 +26,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.android.R
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
+import com.kocfour.mykmpworkshop.ui.theme.WhiteColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import kotlinx.coroutines.delay
+
 
 @Composable
  fun MySplashScreen(navHostController: NavHostController){
@@ -49,8 +53,8 @@ import kotlinx.coroutines.delay
 
          delay(1500L)
 
-         navHostController.navigate("login_screen"){
-             popUpTo("splash_screen"){
+         navHostController.navigate(AppConstants.KEY_NAVIGATE_LOGIN){
+             popUpTo(AppConstants.KEY_NAVIGATE_SPLASH){
                  inclusive = true
              }
          }
@@ -75,9 +79,9 @@ import kotlinx.coroutines.delay
 
         Column(horizontalAlignment = Alignment.CenterHorizontally){
             Spacer(modifier = Modifier.padding(100.dp))
-            MyTextView(text = stringResource(id = R.string.text_drop_water_tracker), textStyle = MyTextStyle.XLargeTextWhite, fontType = FontWeight.Bold)
+            MyTextView(text = stringResource(id = R.string.text_drop_water_tracker), textStyle = MyTextStyle.TitleBold24, textColor = WhiteColor)
             MyTextView(text = stringResource(id = R.string.text_drop_water_tracker_subtitle),
-                textStyle = MyTextStyle.Title2, textAlign = TextAlign.Center,
+                textStyle = MyTextStyle.TitleMedium14, textAlign = TextAlign.Center, textColor = WhiteColor,
                 modifier = Modifier
                     .alpha(0.7f)
                     .padding(start = 80.dp, end = 80.dp))

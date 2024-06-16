@@ -51,6 +51,7 @@ fun MyMainButton(
     Box(
         modifier = modifier
             .fillMaxWidth()
+            .height(50.dp)
             .semantics { this.contentDescription = contentDescription }
     ) {
 
@@ -68,7 +69,7 @@ fun MyMainButton(
             ),
             contentPadding = ButtonDefaults.ContentPadding,
             onClick = { onClick.invoke() }, content = @Composable {
-                MyTextView(text = buttonTitle.toUpperCase(Locale.current), textStyle = MyTextStyle.Title2, fontType = FontWeight.Bold)
+                MyTextView(text = buttonTitle.toUpperCase(Locale.current), textStyle = MyTextStyle.TitleSemiBold14, textColor = WhiteColor)
             }
         )
     }

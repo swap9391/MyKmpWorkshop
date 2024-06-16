@@ -8,8 +8,9 @@ import androidx.compose.material3.Surface
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.kocfour.mykmpworkshop.ui.screens.LoginScreen
+import com.kocfour.mykmpworkshop.ui.screens.LogInScreen
 import com.kocfour.mykmpworkshop.ui.screens.MySplashScreen
+import com.kocfour.mykmpworkshop.ui.screens.SignUpScreen
 import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,12 +22,15 @@ class MainActivity : ComponentActivity() {
 
                     val navHostController = rememberNavController()
 
-                    NavHost(navController = navHostController, startDestination = "splash_screen") {
-                        composable("splash_screen") {
+                    NavHost(navController = navHostController, startDestination = AppConstants.KEY_NAVIGATE_SPLASH) {
+                        composable(AppConstants.KEY_NAVIGATE_SPLASH) {
                             MySplashScreen( navHostController)
                         }
-                        composable("login_screen") {
-                            LoginScreen()
+                        composable(AppConstants.KEY_NAVIGATE_LOGIN) {
+                            LogInScreen(navHostController)
+                        }
+                        composable(AppConstants.KEY_NAVIGATE_SIGNUP) {
+                            SignUpScreen(navHostController)
                         }
 
                     }
