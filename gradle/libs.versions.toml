@@ -1,11 +1,16 @@
 [versions]
-agp = "8.4.0"
-kotlin = "1.9.20"
-compose = "1.5.4"
-compose-compiler = "1.5.4"
+agp = "8.4.2"
+kotlin = "2.0.20-Beta2"
+compose = "1.6.8"
 compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+androidx-activityCompose = "1.9.0"
 androidx-compose-navigation = "2.7.7"
+roomCommon = "2.7.0-alpha05"
+ksp = "2.0.20-Beta1-1.0.22"
+compose-plugin = "1.6.10"
+lifecycleViewModel = "2.8.3"
+navigation = "2.7.0-alpha07"
+uiGraphicsAndroid = "1.6.8"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -16,6 +21,9 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 androidx-compose-navigation ={ module = "androidx.navigation:navigation-compose",version.ref = "androidx-compose-navigation"}
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel" }
+navigation-compose = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-ui-graphics-android = { group = "androidx.compose.ui", name = "ui-graphics-android", version.ref = "uiGraphicsAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -23,3 +31,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kspCompose = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "roomCommon" }
