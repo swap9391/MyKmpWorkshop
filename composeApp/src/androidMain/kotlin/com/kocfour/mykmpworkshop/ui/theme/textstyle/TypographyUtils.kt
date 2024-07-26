@@ -116,6 +116,12 @@ class TypographyUtils {
                     fontWeight = FontWeight.Light,
                 )
 
+                MyTextStyle.TitleLight36 -> return TextStyle(
+                    fontFamily = MyFontFamily,
+                    fontSize = 36.sp,
+                    fontWeight = FontWeight.Light,
+                )
+
                 MyTextStyle.TitleBold12 -> return TextStyle(
                     fontFamily = MyFontFamily,
                     fontSize = 12.sp,

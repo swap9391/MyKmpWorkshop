@@ -45,6 +45,9 @@ kotlin {
             implementation(libs.compose.material3)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.compose.navigation)
+            implementation ("androidx.navigation:navigation-compose:2.7.7")
+            implementation ("androidx.compose.material:material:1.6.8")
+
         }
 
 
@@ -57,6 +60,10 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.navigation.compose)
+            implementation(libs.androidx.constraintlayout.compose)
+            implementation ("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha02")
+
+
         }
 
     }

@@ -1,4 +1,4 @@
-package com.kocfour.mykmpworkshop.ui.screens
+package com.kocfour.mykmpworkshop.ui.screens.usermanagement
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
@@ -51,7 +51,7 @@ import kotlinx.coroutines.delay
 
          delay(1500L)
 
-         navHostController.navigate(AppConstants.KEY_NAVIGATE_LOGIN){
+         navHostController.navigate(AppConstants.KEY_NAVIGATE_ONBOARDING){
              popUpTo(AppConstants.KEY_NAVIGATE_SPLASH){
                  inclusive = true
              }

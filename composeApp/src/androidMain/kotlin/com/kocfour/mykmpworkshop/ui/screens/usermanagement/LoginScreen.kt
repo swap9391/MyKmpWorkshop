@@ -1,6 +1,7 @@
-package com.kocfour.mykmpworkshop.ui.screens
+package com.kocfour.mykmpworkshop.ui.screens.usermanagement
 
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,6 +34,10 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 @Composable
 fun LogInScreen(navHostController: NavHostController) {
     val context = LocalContext.current
+
+    BackHandler {
+        //Back restricted
+    }
 
     ComposeWorkShopTheme {
         Box(
@@ -86,7 +91,10 @@ fun LogInScreen(navHostController: NavHostController) {
                     onValueChange = {}
                 )
 
-                MyMainButton(buttonTitle = stringResource(R.string.text_log_in), modifier = Modifier.padding(25.dp))
+                MyMainButton(buttonTitle = stringResource(R.string.text_log_in), modifier = Modifier.padding(25.dp),
+                    onClick = {
+                    navHostController.navigate(AppConstants.KEY_NAVIGATE_HOME)
+                },)
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
                 HyperLinkTextView(

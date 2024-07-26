@@ -1,5 +1,6 @@
-package com.kocfour.mykmpworkshop.ui.screens
+package com.kocfour.mykmpworkshop.ui.screens.usermanagement
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +14,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -30,7 +30,10 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 @Composable
 fun SignUpScreen(navHostController: NavHostController) {
-    val context = LocalContext.current
+
+    BackHandler {
+        navHostController.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
+    }
 
     ComposeWorkShopTheme {
         Box(
@@ -111,7 +114,10 @@ fun SignUpScreen(navHostController: NavHostController) {
                     onValueChange = {}
                 )
 
-                MyMainButton(buttonTitle = stringResource(R.string.text_button_create_account), modifier = Modifier.padding(25.dp))
+                MyMainButton(buttonTitle = stringResource(R.string.text_button_create_account), modifier = Modifier.padding(25.dp),
+                    onClick = {
+                        navHostController.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
+                    },)
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
 

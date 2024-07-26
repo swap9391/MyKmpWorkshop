@@ -29,4 +29,30 @@
     <string name="text_already_have_account">I Already Have an Account</string>
     <string name="text_log_in">Log In</string>
 
+    <!--Onboarding-->
+    <string name="text_title_slide_one">Track your daily water intake with Us.</string>
+    <string name="text_title_slide_two">Smart Reminders Tailored to You</string>
+    <string name="text_title_slide_three">Easy to Use – Drink, Tap, Repeat</string>
+
+    <string name="text_subtitle_slide_one">Achieve your hydration goals with a simple tap!</string>
+    <string name="text_subtitle_slide_two">Quick and easy to set your hydration goal &amp; then track your daily water intake progress.</string>
+    <string name="text_subtitle_slide_three">Staying hydrated every day is easy with Drops Water Tracker.</string>
+    <string name="text_get_started">Get started</string>
+
+    <!--Verification Screen-->
+    <string name="text_verification_code">Verification Code</string>
+    <string name="text_verification_code_subtext">We sent you a 4 digit code to your email address. please check &amp; enter your code</string>
+    <string name="text_button_verify">Verify</string>
+    <string name="text_not_received_code">Didn’t Receive the Code?</string>
+    <string name="text_resend">Resend</string>
+
+    <!--Verification Success Screen-->
+    <string name="text_you_are_verified">You are Verified</string>
+    <string name="text_verificaion_success_subtitle">Congratulations to you. You are now Verified!\n</string>
+
+    <!--Home Screen-->
+    <string name="text_home">Home</string>
+    <string name="text_analysis">Analysis</string>
+    <string name="text_settings">Settings</string>
+    <string name="text_profile">Profile</string>
 </resources>

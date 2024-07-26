@@ -1,4 +1,4 @@
-package com.kocfour.mykmpworkshop.ui.screens
+package com.kocfour.mykmpworkshop.ui.screens.dialogs
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.AlertDialog
