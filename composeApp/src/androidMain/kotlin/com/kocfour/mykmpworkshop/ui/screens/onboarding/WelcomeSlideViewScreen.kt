@@ -1,6 +1,5 @@
 package com.kocfour.mykmpworkshop.ui.screens.onboarding
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,10 +17,13 @@ import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
-import com.kocfour.mykmpworkshop.ui.screens.model.OnboardingScreenDetails
+import com.kocfour.mykmpworkshop.ui.components.textView.HyperLinkTextView
+import com.kocfour.mykmpworkshop.ui.screens.onboarding.model.OnboardingScreenDetails
+import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
+import com.kocfour.mykmpworkshop.ui.theme.PrimaryLightBlueTextColor
+import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WelcomeSlideViewScreen(navHostController: NavHostController? = null) {
 
@@ -53,7 +55,28 @@ fun WelcomeSlideViewScreen(navHostController: NavHostController? = null) {
     val coroutineScope = rememberCoroutineScope()
 
     ConstraintLayout(Modifier.fillMaxSize()) {
-        val (pager, indicator, button) = createRefs()
+        val (pager, indicator, button,skip) = createRefs()
+
+
+        HyperLinkTextView(
+            text = stringResource(R.string.text_skip_all),
+            textStyle = MyTextStyle.TitleLight14,
+            unselectedColor = PrimaryBlueTextColor,
+            selectedColor = PrimaryLightBlueTextColor,
+            modifier = Modifier
+                .constrainAs(skip) {
+                    top.linkTo(parent.top)
+                    end.linkTo(parent.end)
+                }
+                .padding(end = 25.dp, top = 25.dp),
+            onClick = {
+                coroutineScope.launch {
+                  //  pagerState.animateScrollToPage(2)
+                    navHostController?.navigate(AppConstants.KEY_NAVIGATE_HOME)
+                }
+            }
+        )
+
         HorizontalPager(
             state = pagerState,
             Modifier
@@ -110,11 +133,7 @@ fun WelcomeSlideViewScreen(navHostController: NavHostController? = null) {
             onClick = {
                 when (pagerState.currentPage) {
                     2 -> {
-                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN) {
-                            popUpTo(AppConstants.KEY_NAVIGATE_ONBOARDING) {
-                                inclusive = true
-                            }
-                        }
+                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
                     }
 
                     else -> {

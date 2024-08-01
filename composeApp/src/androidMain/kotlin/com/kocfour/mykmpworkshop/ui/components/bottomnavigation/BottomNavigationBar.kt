@@ -1,6 +1,5 @@
 package com.kocfour.mykmpworkshop.ui.components.bottomnavigation
 
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -11,11 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.screens.home.nav.NavItem
@@ -47,12 +44,12 @@ fun BottomNavigationBar(navController: NavHostController) {
                 label = {
                     MyTextView(
                         text = stringResource(id = item.title),
-                        textColor = if (selectedItem == index) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primaryContainer
+                        textColor = if (selectedItem == index) MaterialTheme.colorScheme.primary else Color.Black
                     )
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = MaterialTheme.colorScheme.primary,
-                    unselectedIconColor = MaterialTheme.colorScheme.primaryContainer,
+                    unselectedIconColor = Color.Black,
                     indicatorColor = SecondaryBlueTextColor
                     ),
                 selected = selectedItem == index,

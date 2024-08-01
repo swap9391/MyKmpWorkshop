@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KmpWorkShop</string>
+    <string name="app_name">Water Tracker</string>
 
     <!--Splash Screen-->
     <string name="text_drop_water_tracker">Drops Water Tracker</string>

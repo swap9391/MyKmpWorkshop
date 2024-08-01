@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -25,11 +26,13 @@ fun HyperLinkTextView(
     fontType: FontWeight = FontWeight.Medium,
     textStyle: MyTextStyle = MyTextStyle.TitleLight12,
     modifier: Modifier = Modifier,
+    unselectedColor : Color = ButtonElevationColor,
+    selectedColor : Color = PrimaryBlueTextColor
 ) {
 
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
-    val textColor = if (isPressed) PrimaryBlueTextColor else ButtonElevationColor
+    val textColor = if (isPressed) selectedColor else unselectedColor
 
     val annotatedText = buildAnnotatedString {
         withStyle(

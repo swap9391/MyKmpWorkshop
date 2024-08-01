@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kocfour.mykmpworkshop.R
-import com.kocfour.mykmpworkshop.ui.screens.model.OnboardingScreenDetails
+import com.kocfour.mykmpworkshop.ui.screens.onboarding.model.OnboardingScreenDetails
 import com.kocfour.mykmpworkshop.ui.components.imageview.MyImageView
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle

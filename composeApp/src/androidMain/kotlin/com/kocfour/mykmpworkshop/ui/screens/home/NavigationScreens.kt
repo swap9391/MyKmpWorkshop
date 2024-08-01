@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.kocfour.mykmpworkshop.ui.screens.home.tabs.HomeScreen
-import com.kocfour.mykmpworkshop.ui.screens.home.tabs.ListScreen
-import com.kocfour.mykmpworkshop.ui.screens.home.tabs.ProfileScreen
-import com.kocfour.mykmpworkshop.ui.screens.home.tabs.SearchScreen
 import com.kocfour.mykmpworkshop.ui.screens.home.nav.NavItem
+import com.kocfour.mykmpworkshop.ui.screens.home.tabs.AnalysisTab
+import com.kocfour.mykmpworkshop.ui.screens.home.tabs.HomeTab
+import com.kocfour.mykmpworkshop.ui.screens.home.tabs.ProfileTab
+import com.kocfour.mykmpworkshop.ui.screens.home.tabs.SettingsTab
 
 /**
  * Composable function that defines the navigation screens and their corresponding destinations.
@@ -18,9 +18,9 @@ import com.kocfour.mykmpworkshop.ui.screens.home.nav.NavItem
 @Composable
 fun NavigationScreens(navController: NavHostController) {
     NavHost(navController, startDestination = NavItem.Home.path) {
-        composable(NavItem.Home.path) { HomeScreen() }
-        composable(NavItem.Search.path) { SearchScreen() }
-        composable(NavItem.List.path) { ListScreen() }
-        composable(NavItem.Profile.path) { ProfileScreen() }
+        composable(NavItem.Home.path) { HomeTab() }
+        composable(NavItem.Search.path) { AnalysisTab() }
+        composable(NavItem.List.path) { SettingsTab() }
+        composable(NavItem.Profile.path) { ProfileTab() }
     }
 }

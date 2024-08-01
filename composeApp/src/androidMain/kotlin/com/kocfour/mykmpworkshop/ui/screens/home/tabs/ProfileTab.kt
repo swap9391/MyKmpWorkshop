@@ -10,13 +10,13 @@ import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 /**
- * Composable function that represents the list screen of the application.
+ * Composable function that represents the profile screen of the application.
  */
 @Composable
-fun ListScreen() {
+fun ProfileTab() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         MyTextView(
-            text = "List Screen",
+            text = "Profile Screen",
             textStyle = MyTextStyle.TitleLight18,
             textColor = MaterialTheme.colorScheme.primaryContainer
         )

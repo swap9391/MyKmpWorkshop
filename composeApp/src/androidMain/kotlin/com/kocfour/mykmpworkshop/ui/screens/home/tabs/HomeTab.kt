@@ -10,13 +10,13 @@ import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 /**
- * Composable function that represents the search screen of the application.
+ * Composable function that represents the home screen of the application.
  */
 @Composable
-fun SearchScreen() {
+fun HomeTab() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         MyTextView(
-            text = "Search Screen",
+            text = "Home",
             textStyle = MyTextStyle.TitleLight18,
             textColor = MaterialTheme.colorScheme.primaryContainer
         )
