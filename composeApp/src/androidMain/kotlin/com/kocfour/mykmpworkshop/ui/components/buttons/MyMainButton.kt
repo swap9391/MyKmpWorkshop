@@ -36,6 +36,7 @@ fun MyMainButton(
     isEnable: Boolean = true,
     contentDescription: String = buttonTitle,
     modifier: Modifier = Modifier,
+    isUpperCase: Boolean = true,
     onClick: () -> Unit = {},
 ) {
 
@@ -68,7 +69,9 @@ fun MyMainButton(
             ),
             contentPadding = ButtonDefaults.ContentPadding,
             onClick = { onClick.invoke() }, content = @Composable {
-                MyTextView(text = buttonTitle.toUpperCase(Locale.current), textStyle = MyTextStyle.TitleSemiBold14, textColor = WhiteColor)
+                MyTextView(text = if(isUpperCase){ buttonTitle.toUpperCase(Locale.current)}else{buttonTitle}
+                    , textStyle = MyTextStyle.TitleSemiBold14
+                    , textColor = WhiteColor)
             }
         )
     }
@@ -78,6 +81,6 @@ fun MyMainButton(
 @Preview
 @Composable
 fun DefaultPreview() {
-    MyMainButton(buttonTitle = "Submit")
+    MyMainButton(buttonTitle = "Submit", isUpperCase = false)
 }
 

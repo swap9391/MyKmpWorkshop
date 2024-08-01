@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
@@ -14,11 +15,7 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
  */
 @Composable
 fun HomeTab() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        MyTextView(
-            text = "Home",
-            textStyle = MyTextStyle.TitleLight18,
-            textColor = MaterialTheme.colorScheme.primaryContainer
-        )
+    ConstraintLayout {
+        val (greetingText,UserName,)= createRefs()
     }
 }

@@ -32,6 +32,7 @@ import com.kocfour.mykmpworkshop.ui.theme.ColorPrimaryBlueText
 import com.kocfour.mykmpworkshop.ui.theme.ColorSecondaryText
 import com.kocfour.mykmpworkshop.ui.theme.GreyColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
+import com.kocfour.mykmpworkshop.ui.theme.SecondaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.TypographyUtils
 
@@ -46,9 +47,10 @@ fun MyEditText(
     textAlign: TextAlign = TextAlign.Left,
     isEnable: Boolean = true,
     isPassword: Boolean = false,
-    isBorder:Boolean=false,
+    isBorder: Boolean = false,
     textLength: Int = 250,
     modifier: Modifier = Modifier,
+    containerColor: Color = GreyColor,
     onValueChange: ((updatedValue: String) -> Unit)
 ) {
     var input by rememberSaveable { mutableStateOf(text) }
@@ -59,15 +61,14 @@ fun MyEditText(
         modifier = modifier.apply {
             fillMaxWidth()
         },
-        leadingIcon = {
-            if (icon != null) {
+        leadingIcon = if (icon != null) {
+            {
                 Icon(
                     painter = painterResource(id = icon),
                     contentDescription = "null", tint = Color.Unspecified
                 )
-
             }
-        },
+        } else null,
         placeholder = {
             MyTextView(
                 text = hint,
@@ -77,19 +78,20 @@ fun MyEditText(
             )
         },
         colors = TextFieldDefaults.colors(
-            focusedIndicatorColor = if (isBorder){
+            focusedIndicatorColor = if (isBorder) {
                 PrimaryBlueTextColor
-            }else{
+            } else {
                 Color.Transparent
             },
-            unfocusedIndicatorColor = if (isBorder){
+            unfocusedIndicatorColor = if (isBorder) {
                 PrimaryBlueTextColor
-            }else{
+            } else {
                 Color.Transparent
             },
             cursorColor = PrimaryBlueTextColor,
-            unfocusedContainerColor = GreyColor,
-            focusedContainerColor = GreyColor,
+            unfocusedContainerColor = containerColor,
+            focusedContainerColor = containerColor,
+            disabledContainerColor = GreyColor,
             focusedTextColor = ColorLightPrimaryText,
             unfocusedTextColor = ColorLightPrimaryText,
         ),
@@ -97,8 +99,8 @@ fun MyEditText(
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, autoCorrect = false),
         visualTransformation = if (isPassword && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None,
-        trailingIcon = {
-            if (isPassword) {
+        trailingIcon = if (isPassword) {
+            {
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
                     if (passwordVisible) {
                         Icon(
@@ -113,7 +115,7 @@ fun MyEditText(
                     }
                 }
             }
-        },
+        } else null,
         enabled = isEnable,
         onValueChange = { newValue ->
             if (newValue.length <= textLength) {
@@ -129,6 +131,9 @@ fun MyEditText(
 @Composable
 fun DefaultPreview() {
     MyEditText(
-        text = "", hint = "Enter Username", icon = R.drawable.ic_user_email, onValueChange = {}
+        text = "", hint = "Enter Username",
+        icon = R.drawable.ic_user_email,
+        containerColor = SecondaryBlueTextColor,
+        onValueChange = {}
     )
 }

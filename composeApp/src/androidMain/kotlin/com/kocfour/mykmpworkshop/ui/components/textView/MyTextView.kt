@@ -17,7 +17,7 @@ fun MyTextView(
     text: String,
     textStyle: MyTextStyle = MyTextStyle.TitleMedium12,
     textAlign :TextAlign = TextAlign.Left,
-    textColor : Color = MaterialTheme.colorScheme.primary,
+    textColor : Color = MaterialTheme.colorScheme.primaryContainer,
     modifier: Modifier = Modifier,
 ) {
 
