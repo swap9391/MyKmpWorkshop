@@ -14,6 +14,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,7 +49,7 @@ fun ProfileTab() {
         val genderText = rememberSaveable { mutableStateOf("Male") }
 
 
-        MyToolbar(title = "Edit Profile",
+        MyToolbar(title = stringResource(R.string.text_edit_profile),
             imageRes = R.drawable.ic_edit,
             isBack = true,
             isMenu = true,
@@ -80,14 +81,14 @@ fun ProfileTab() {
                     .width(100.dp))
 
             MyTextView(
-                text = "First Name",
+                text = stringResource(R.string.text_first_name),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelFirstName) {
                     top.linkTo(profilePic.bottom, margin = 23.dp)
                     start.linkTo(parent.start, margin = 23.dp)
                 })
 
-            MyEditText(hint = "Enter First Name", text = firstNameText.value,
+            MyEditText(hint = stringResource(R.string.text_enter_first_name), text = firstNameText.value,
                 hintTextStyle = MyTextStyle.TitleMedium14,
                 textStyle = MyTextStyle.TitleMedium14,
                 containerColor = SecondaryBlueTextColor,
@@ -105,14 +106,14 @@ fun ProfileTab() {
 
 
             MyTextView(
-                text = "Last Name",
+                text = stringResource(R.string.text_last_name),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelLastName) {
                     top.linkTo(textFieldFirstName.bottom, margin = 13.dp)
                     start.linkTo(parent.start, margin = 23.dp)
                 })
 
-            MyEditText(hint = "Enter Last Name", text = lastNameText.value,
+            MyEditText(hint = stringResource(R.string.text_enter_last_name), text = lastNameText.value,
                 hintTextStyle = MyTextStyle.TitleMedium14,
                 textStyle = MyTextStyle.TitleMedium14,
                 containerColor = SecondaryBlueTextColor,
@@ -130,13 +131,13 @@ fun ProfileTab() {
 
 
             MyTextView(
-                text = "Age",
+                text = stringResource(R.string.text_age),
                 textStyle = MyTextStyle.TitleMedium16, modifier = Modifier.constrainAs(labelAge) {
                     top.linkTo(textFieldLastName.bottom, margin = 13.dp)
                     start.linkTo(parent.start, margin = 23.dp)
                 })
 
-            MyEditText(hint = "Enter Age", text = ageText.value,
+            MyEditText(hint = stringResource(R.string.text_enter_age), text = ageText.value,
                 hintTextStyle = MyTextStyle.TitleMedium14,
                 textStyle = MyTextStyle.TitleMedium14,
                 containerColor = SecondaryBlueTextColor,
@@ -158,14 +159,14 @@ fun ProfileTab() {
 
 
             MyTextView(
-                text = "Email Address",
+                text = stringResource(R.string.text_email_address),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelEmailAddress) {
                     top.linkTo(textFieldAge.bottom, margin = 13.dp)
                     start.linkTo(parent.start, margin = 23.dp)
                 })
 
-            MyEditText(hint = "Enter Email Address", text = emailAddressText.value,
+            MyEditText(hint = stringResource(R.string.text_enter_email_address), text = emailAddressText.value,
                 hintTextStyle = MyTextStyle.TitleMedium14,
                 textStyle = MyTextStyle.TitleMedium14,
                 containerColor = SecondaryBlueTextColor,
@@ -184,14 +185,14 @@ fun ProfileTab() {
 
 
             MyTextView(
-                text = "Gender",
+                text = stringResource(R.string.text_gender),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelGender) {
                     top.linkTo(textFieldEmailAddress.bottom, margin = 13.dp)
                     start.linkTo(parent.start, margin = 23.dp)
                 })
 
-            MyRadioGroup(list = listOf("Male", "Female"),
+            MyRadioGroup(list = listOf(stringResource(R.string.text_male), stringResource(R.string.text_female)),
                 selectedValue = genderText.value,
                 modifier = Modifier.constrainAs(radioGender) {
                     top.linkTo(labelGender.bottom, margin = 13.dp)
@@ -203,7 +204,7 @@ fun ProfileTab() {
                 })
 
             if (isUpdate.value) {
-                MyMainButton(buttonTitle = "Update", isUpperCase = false,
+                MyMainButton(buttonTitle = stringResource(R.string.text_update), isUpperCase = false,
                     modifier = Modifier
                         .constrainAs(btnUpdate) {
                             top.linkTo(radioGender.bottom, margin = 13.dp)
@@ -220,40 +221,41 @@ fun ProfileTab() {
     }
 }
 
+@Composable
 private fun getProfileImageResource(
     genderText: MutableState<String>,
     ageText: MutableState<String>
 ) = when {
 
-    genderText.value == "Male" && ageText.value.isEmpty() -> {
+    genderText.value == stringResource(R.string.text_male) && ageText.value.isEmpty() -> {
         R.drawable.ic_profile_male_junior
     }
 
-    genderText.value == "Female" && ageText.value.isEmpty() -> {
+    genderText.value == stringResource(R.string.text_female) && ageText.value.isEmpty() -> {
         R.drawable.ic_profile_female_junior
     }
 
-    genderText.value == "Male" && ageText.value.toInt() < 18 -> {
+    genderText.value == stringResource(R.string.text_male) && ageText.value.toInt() < 18 -> {
         R.drawable.ic_profile_male_junior
     }
 
-    genderText.value == "Male" && ageText.value.toInt() > 18 && ageText.value.toInt() < 60 -> {
+    genderText.value == stringResource(R.string.text_male) && ageText.value.toInt() > 18 && ageText.value.toInt() < 60 -> {
         R.drawable.ic_profile_male
     }
 
-    genderText.value == "Male" && ageText.value.toInt() > 60 -> {
+    genderText.value == stringResource(R.string.text_male) && ageText.value.toInt() > 60 -> {
         R.drawable.ic_profile_male_senior
     }
 
-    genderText.value == "Female" && ageText.value.toInt() < 18 -> {
+    genderText.value == stringResource(R.string.text_female) && ageText.value.toInt() < 18 -> {
         R.drawable.ic_profile_female_junior
     }
 
-    genderText.value == "Female" && ageText.value.toInt() > 18 && ageText.value.toInt() < 60 -> {
+    genderText.value == stringResource(R.string.text_female) && ageText.value.toInt() > 18 && ageText.value.toInt() < 60 -> {
         R.drawable.ic_profile_female
     }
 
-    genderText.value == "Female" && ageText.value.toInt() > 60 -> {
+    genderText.value == stringResource(R.string.text_female) && ageText.value.toInt() > 60 -> {
         R.drawable.ic_profile_female_senior
     }
 

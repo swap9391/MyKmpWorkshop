@@ -17,6 +17,8 @@ fun MyTextView(
     text: String,
     textStyle: MyTextStyle = MyTextStyle.TitleMedium12,
     textAlign :TextAlign = TextAlign.Left,
+    maxLines: Int = 1,
+    softWrap: Boolean = false,
     textColor : Color = MaterialTheme.colorScheme.primaryContainer,
     modifier: Modifier = Modifier,
 ) {
@@ -26,6 +28,8 @@ fun MyTextView(
             text = AnnotatedString(text),
             textAlign = textAlign,
             color = textColor,
+            maxLines = maxLines,
+            softWrap = softWrap,
             style = TypographyUtils.getKKTextStyle(textStyle),
         )
     }
