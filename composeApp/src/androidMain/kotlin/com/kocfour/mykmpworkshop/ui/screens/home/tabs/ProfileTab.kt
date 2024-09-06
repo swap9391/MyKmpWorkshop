@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -24,6 +27,7 @@ import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
 import com.kocfour.mykmpworkshop.ui.components.imageview.MyImageView
 import com.kocfour.mykmpworkshop.ui.components.radiogroup.MyRadioGroup
+import com.kocfour.mykmpworkshop.ui.components.slider.MySlider
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.components.toolbar.MyToolbar
 import com.kocfour.mykmpworkshop.ui.theme.SecondaryBlueTextColor
@@ -47,6 +51,9 @@ fun ProfileTab() {
         val emailAddressText = rememberSaveable { mutableStateOf("") }
         val ageText = rememberSaveable { mutableStateOf("") }
         val genderText = rememberSaveable { mutableStateOf("Male") }
+        val userWeight = rememberSaveable { mutableFloatStateOf(60F) }
+        val userHeight = rememberSaveable { mutableFloatStateOf(125F) }
+
 
 
         MyToolbar(title = stringResource(R.string.text_edit_profile),
@@ -64,7 +71,7 @@ fun ProfileTab() {
                 .verticalScroll(rememberScrollState())
         ) {
             val (profilePic, labelFirstName, labelLastName, labelEmailAddress, labelAge, labelGender, radioGender, btnUpdate,
-                textFieldFirstName, textFieldLastName, textFieldAge, textFieldEmailAddress) = createRefs()
+                textFieldFirstName, textFieldLastName, textFieldAge, textFieldEmailAddress,labelWeight,labelHeight,sliderWeight,sliderHeight) = createRefs()
 
 
 
@@ -202,6 +209,52 @@ fun ProfileTab() {
                 onGenderSelected = {
                     genderText.value = it
                 })
+
+            MyTextView(
+                text = stringResource(R.string.text_user_weight_label),
+                textStyle = MyTextStyle.TitleMedium16,
+                modifier = Modifier.constrainAs(labelWeight) {
+                    top.linkTo(radioGender.bottom, margin = 13.dp)
+                    start.linkTo(labelGender.start)
+                }.fillMaxWidth())
+
+            MySlider(
+                modifier = Modifier.padding(start = 20.dp, end = 40.dp)
+                    .constrainAs(sliderWeight) {
+                        top.linkTo(labelWeight.bottom, margin = 7.dp)
+                        start.linkTo(labelWeight.start)
+                        end.linkTo(parent.end)
+
+                    },
+                value = userWeight.value,
+                range = 0f..200f, {}
+            )
+
+
+            MyTextView(
+                text = stringResource(R.string.text_user_height_label),
+                textStyle = MyTextStyle.TitleMedium16,
+                modifier = Modifier.constrainAs(labelHeight) {
+                    top.linkTo(sliderWeight.bottom, margin = 13.dp)
+                    start.linkTo(labelGender.start)
+                }.fillMaxWidth())
+
+            MySlider(
+                modifier = Modifier.padding(start = 20.dp, end = 40.dp)
+                    .constrainAs(sliderHeight) {
+                        top.linkTo(labelHeight.bottom, margin = 7.dp)
+                        start.linkTo(labelHeight.start)
+                        end.linkTo(parent.end)
+
+                    },
+                value = userWeight.value,
+                range = 0f..200f, {}
+            )
+
+            //Todo Need to add text for Thumb
+
+
+
 
             if (isUpdate.value) {
                 MyMainButton(buttonTitle = stringResource(R.string.text_update), isUpperCase = false,

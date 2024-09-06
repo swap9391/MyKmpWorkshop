@@ -59,7 +59,6 @@ fun ProfileSettingScreen(navHostController: NavHostController? = null) {
                     .constrainAs(sliderAge) {
                         top.linkTo(labelAge.bottom, margin = 7.dp)
                         start.linkTo(labelAge.start)
-                        end.linkTo(parent.end, margin = 25.dp)
                     }
                     .fillMaxWidth(),
                 value = 50f,

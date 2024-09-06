@@ -35,16 +35,16 @@ fun MySlider(
     range: ClosedFloatingPointRange<Float>,
     currentSliderValue: ((Int) -> Unit),
 ) {
-    var kkSliderValue by remember { mutableFloatStateOf(value) }
+    var sliderValue by remember { mutableFloatStateOf(value) }
 
     Column(modifier = modifier) {
         Slider(
-            value = kkSliderValue,
+            value = sliderValue,
             onValueChangeFinished = {
-                currentSliderValue.invoke(kkSliderValue.roundToInt())
+                currentSliderValue.invoke(sliderValue.roundToInt())
             },
             onValueChange = {
-                kkSliderValue = it
+                sliderValue = it
 
             },
             thumb = {
@@ -68,10 +68,10 @@ fun MySlider(
                         inactiveTrackColor = ColorSecondaryText
                     ),
                     modifier = Modifier
-                        .scale(1f, 2f)
+                        .scale(1.1F, 2f)
                 )
             },
-            steps = 100,
+            steps = range.endInclusive.toInt(),
             valueRange = range,
         )
 
@@ -81,7 +81,7 @@ fun MySlider(
             horizontalArrangement = Arrangement.SpaceBetween // Space between texts
         ) {
             MyTextView(text = 0.toString(), textStyle = MyTextStyle.TitleMedium14)
-            MyTextView(text = 100.toString(), textStyle = MyTextStyle.TitleMedium14)
+            MyTextView(text = range.endInclusive.toInt().toString(), textStyle = MyTextStyle.TitleMedium14)
         }
 
         // Text(text = sliderPosition.toString())
@@ -94,6 +94,6 @@ fun DefaultPreview() {
     MySlider(
         modifier = Modifier,
         value = 50f,
-        range = 0f..100f,{}
+        range = 0f..200f,{}
     )
 }

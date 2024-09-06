@@ -71,6 +71,10 @@
     <string name="text_gender">Gender</string>
     <string name="text_female">Female</string>
     <string name="text_update">Update</string>
+    <string name="text_user_weight_label">What is your weight (in kg)</string>
+    <string name="text_user_height_label">What is your height (in cm)</string>
+
+
 
 
     <!--Profile Setting Screen-->
