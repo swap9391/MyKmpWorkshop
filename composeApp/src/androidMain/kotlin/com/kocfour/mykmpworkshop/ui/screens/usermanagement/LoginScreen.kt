@@ -19,8 +19,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
@@ -222,4 +224,11 @@ fun LogInScreen(navHostController: NavHostController) {
         }
 
     }
+}
+
+@Preview
+@Composable
+private fun LoginPreview() {
+    val navHostController = rememberNavController()
+    LogInScreen(navHostController)
 }

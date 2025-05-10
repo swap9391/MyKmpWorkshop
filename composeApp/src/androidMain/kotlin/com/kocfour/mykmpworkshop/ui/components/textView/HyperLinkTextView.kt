@@ -9,11 +9,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
+import com.kocfour.mykmpworkshop.R
+import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.theme.ButtonElevationColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
@@ -55,5 +59,19 @@ fun HyperLinkTextView(
         ),
         fontWeight = fontType,
         style = TypographyUtils.getKKTextStyle(textStyle),
+    )
+
+}
+
+
+@Preview
+@Composable
+private fun HyperLinkTextPreview() {
+    HyperLinkTextView(
+        onClick = {
+
+        },
+        text = stringResource(R.string.text_log_in),
+        textStyle = MyTextStyle.TitleMedium14,
     )
 }

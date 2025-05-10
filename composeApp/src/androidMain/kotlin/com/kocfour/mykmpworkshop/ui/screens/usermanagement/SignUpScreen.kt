@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,10 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.R
+import com.kocfour.mykmpworkshop.ui.components.dropdown.MyDropDown
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
 import com.kocfour.mykmpworkshop.ui.components.textView.HyperLinkTextView
@@ -29,10 +32,10 @@ import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 @Composable
-fun SignUpScreen(navHostController: NavHostController) {
+fun SignUpScreen(navHostController: NavHostController?=null) {
 
     BackHandler {
-        navHostController.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
+        navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
     }
 
     ComposeWorkShopTheme {
@@ -89,16 +92,24 @@ fun SignUpScreen(navHostController: NavHostController) {
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
 
-                MyEditText(
-                    text = "", hint = stringResource(R.string.text_enter_contact),
-                    icon = R.drawable.ic_user_contact,
-                    keyboardType = KeyboardType.Phone,
-                    textLength = 12,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 25.dp, end = 25.dp),
-                    onValueChange = {}
-                )
+                Row {
+                    MyDropDown(onCountryCodeSelected = {},
+                        modifier = Modifier.wrapContentSize()
+                            .align(Alignment.CenterVertically))
+
+                    MyEditText(
+                        text = "", hint = stringResource(R.string.text_enter_contact),
+                        icon = R.drawable.ic_user_contact,
+                        keyboardType = KeyboardType.Phone,
+                        textLength = 12,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 25.dp, end = 25.dp),
+                        onValueChange = {}
+                    )
+                }
+
+
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
 
@@ -116,7 +127,7 @@ fun SignUpScreen(navHostController: NavHostController) {
 
                 MyMainButton(buttonTitle = stringResource(R.string.text_button_create_account), modifier = Modifier.padding(25.dp),
                     onClick = {
-                        navHostController.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
+                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
                     },)
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
@@ -137,7 +148,7 @@ fun SignUpScreen(navHostController: NavHostController) {
                     )
                     HyperLinkTextView(
                         onClick = {
-                            navHostController.navigate(AppConstants.KEY_NAVIGATE_LOGIN){
+                            navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN){
                                 popUpTo(AppConstants.KEY_NAVIGATE_SIGNUP){
                                     inclusive = true
                                 }
@@ -154,3 +165,7 @@ fun SignUpScreen(navHostController: NavHostController) {
 
     }
 }
+@Composable
+@Preview(showBackground = false)
+fun SignUpPreview() = SignUpScreen()
+

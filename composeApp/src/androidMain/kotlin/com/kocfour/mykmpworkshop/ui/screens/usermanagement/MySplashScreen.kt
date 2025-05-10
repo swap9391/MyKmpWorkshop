@@ -115,10 +115,4 @@ import kotlinx.coroutines.delay
 fun GreetingPreview() {
     val navController = rememberNavController()
     MySplashScreen(navHostController = navController)
-    
-    /*ComposeWorkShopTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {
-            HomeScreen()
-        }
-    }*/
 }
