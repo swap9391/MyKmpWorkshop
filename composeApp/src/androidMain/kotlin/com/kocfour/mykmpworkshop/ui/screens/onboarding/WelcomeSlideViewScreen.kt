@@ -71,8 +71,7 @@ fun WelcomeSlideViewScreen(navHostController: NavHostController? = null) {
                 .padding(end = 25.dp, top = 25.dp),
             onClick = {
                 coroutineScope.launch {
-                  //  pagerState.animateScrollToPage(2)
-                    navHostController?.navigate(AppConstants.KEY_NAVIGATE_HOME)
+                    pagerState.animateScrollToPage(2)
                 }
             }
         )
