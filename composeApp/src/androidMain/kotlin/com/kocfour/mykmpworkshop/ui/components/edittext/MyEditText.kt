@@ -1,8 +1,6 @@
 package com.kocfour.mykmpworkshop.ui.components.edittext
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -17,18 +15,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
-import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryBlue
 import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryText
-import com.kocfour.mykmpworkshop.ui.theme.ColorPrimaryBlueText
 import com.kocfour.mykmpworkshop.ui.theme.ColorSecondaryText
 import com.kocfour.mykmpworkshop.ui.theme.GreyColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
@@ -95,7 +89,7 @@ fun MyEditText(
             focusedTextColor = ColorLightPrimaryText,
             unfocusedTextColor = ColorLightPrimaryText,
         ),
-        textStyle = TypographyUtils.getKKTextStyle(textStyle),
+        textStyle = TypographyUtils.getMyTextStyle(textStyle),
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, autoCorrect = false),
         visualTransformation = if (isPassword && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None,

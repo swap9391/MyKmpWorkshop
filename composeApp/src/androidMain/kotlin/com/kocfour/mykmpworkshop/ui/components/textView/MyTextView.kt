@@ -30,7 +30,7 @@ fun MyTextView(
             color = textColor,
             maxLines = maxLines,
             softWrap = softWrap,
-            style = TypographyUtils.getKKTextStyle(textStyle),
+            style = TypographyUtils.getMyTextStyle(textStyle),
         )
     }
 

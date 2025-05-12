@@ -12,9 +12,6 @@ import com.kocfour.mykmpworkshop.R
 class TypographyUtils {
     companion object {
 
-        /**
-         * The font family used in entire KKTextViewComponent
-         */
         val MyFontFamily = FontFamily(
             Font(R.font.poppins_medium, FontWeight.Medium),
             Font(R.font.poppins_light, FontWeight.Light),
@@ -23,32 +20,8 @@ class TypographyUtils {
             )
 
 
-        /**
-         * The getKKTextStyle function is used to return the TextStyle based on KKTextStyle.
-         * @param kkFontStyle The kkFontStyle is having multiple possible values. e.g XLargeTitle, LargeTitle, Title1, Title2 etc. Default is KKTextStyle.Title1
-         */
-
-         val myTypography = Typography(
-            bodySmall = TextStyle(
-                fontFamily = MyFontFamily,
-                fontWeight = FontWeight.Light,
-                fontSize = 12.sp
-            ),
-            bodyMedium = TextStyle(
-                fontFamily = MyFontFamily,
-                fontWeight = FontWeight.Light,
-                fontSize = 14.sp
-            ),
-            bodyLarge = TextStyle(
-                fontFamily = MyFontFamily,
-                fontWeight = FontWeight.Bold,
-                fontSize = 16.sp
-            )
-
-        )
-
-        fun getKKTextStyle(kkFontStyle: MyTextStyle): TextStyle {
-            when (kkFontStyle) {
+        fun getMyTextStyle(myFontStyle: MyTextStyle): TextStyle {
+            when (myFontStyle) {
 
                 MyTextStyle.TitleMedium12 -> return TextStyle(
                     fontFamily = MyFontFamily,

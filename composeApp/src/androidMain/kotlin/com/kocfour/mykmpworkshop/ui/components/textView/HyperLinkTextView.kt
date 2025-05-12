@@ -17,7 +17,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import com.kocfour.mykmpworkshop.R
-import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.theme.ButtonElevationColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
@@ -58,7 +57,7 @@ fun HyperLinkTextView(
             onClick = onClick
         ),
         fontWeight = fontType,
-        style = TypographyUtils.getKKTextStyle(textStyle),
+        style = TypographyUtils.getMyTextStyle(textStyle),
     )
 
 }
