@@ -25,27 +25,29 @@ import androidx.compose.ui.unit.dp
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryText
+import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryLightBlueContainerColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryLightBlueTextColor
+import com.kocfour.mykmpworkshop.ui.theme.WhiteDisableColor
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 
 @Composable
 fun OvalBorderButtonWithIcon(
-    /*buttonTitle: String,
-    isEnable: Boolean = true,
-    contentDescription: String = buttonTitle,
-    modifier: Modifier = Modifier,
-    ,*/
     modifier: Modifier = Modifier,
     iconId: Int = R.drawable.ic_facebook,
     buttonTitle: String,
+    textStyle :MyTextStyle= MyTextStyle.TitleLight12,
+    isEnable: Boolean = true,
+    textColor: Color = Color.Black,
     onClick: () -> Unit = {}
 ) {
 
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = PrimaryLightBlueContainerColor,//if (isPressed) PrimaryBlueTextColor.copy(alpha = 0.7F) else PrimaryBlueTextColor,
         contentColor = Color.Unspecified,
+        disabledContainerColor = PrimaryLightBlueContainerColor.copy(alpha = 0.8F),
+        disabledContentColor = WhiteDisableColor
     )
 
 
@@ -59,13 +61,12 @@ fun OvalBorderButtonWithIcon(
                 .height(60.dp)
                 .fillMaxWidth(),
             colors = buttonColors,
+            enabled = isEnable,
             shape = RoundedCornerShape(50.dp),
             border = BorderStroke(1.dp, PrimaryLightBlueTextColor),
             contentPadding = ButtonDefaults.ContentPadding,
             onClick = { onClick.invoke() },
-            /*content = @Composable {
-                MyTextView(text = buttonTitle.toUpperCase(Locale.current), textStyle = MyTextStyle.Title4Grey, fontType = FontWeight.Medium)
-            }*/
+
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -79,8 +80,8 @@ fun OvalBorderButtonWithIcon(
                 )
                 MyTextView(
                     text = buttonTitle.toUpperCase(Locale.current),
-                    textStyle = MyTextStyle.TitleLight12,
-                    textColor = ColorLightPrimaryText,
+                    textStyle = textStyle,
+                    textColor = textColor,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )

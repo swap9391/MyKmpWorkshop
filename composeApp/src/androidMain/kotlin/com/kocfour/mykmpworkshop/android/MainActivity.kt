@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kocfour.mykmpworkshop.ui.screens.home.HomeScreen
+import com.kocfour.mykmpworkshop.ui.screens.home.setgoalwithai.SetGoalWithAI
 import com.kocfour.mykmpworkshop.ui.screens.usermanagement.EmailVerificationScreen
 import com.kocfour.mykmpworkshop.ui.screens.usermanagement.EmailVerificationSuccessScreen
 import com.kocfour.mykmpworkshop.ui.screens.usermanagement.LogInScreen
@@ -31,7 +32,8 @@ class MainActivity : ComponentActivity() {
                         startDestination = AppConstants.KEY_NAVIGATE_SPLASH
                     ) {
                         composable(AppConstants.KEY_NAVIGATE_SPLASH) {
-                            MySplashScreen(navHostController)
+                            //MySplashScreen(navHostController)
+                            HomeScreen(navHostController)
                         }
                         composable(AppConstants.KEY_NAVIGATE_LOGIN) {
                             LogInScreen(navHostController)
@@ -53,7 +55,11 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable(AppConstants.KEY_NAVIGATE_HOME) {
-                            HomeScreen()
+                            HomeScreen(navHostController)
+                        }
+
+                        composable(AppConstants.KEY_NAVIGATE_SET_GOAL) {
+                            SetGoalWithAI(navHostController)
                         }
 
                     }

@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kspCompose)
     alias(libs.plugins.kotlinCocoapods)
+    id("com.google.gms.google-services")
 }
 
 kotlin {
@@ -45,9 +46,17 @@ kotlin {
             implementation(libs.compose.material3)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.compose.navigation)
+            implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
             implementation ("androidx.navigation:navigation-compose:2.7.7")
             implementation ("androidx.compose.material:material:1.6.8")
-
+            // add the dependency for the Google AI client SDK for Android
+            implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.15.0"))
+            implementation("com.google.firebase:firebase-ai")
+            //Lottie
+            implementation("com.airbnb.android:lottie-compose:6.4.1")
+            //Gson
+            implementation("com.google.code.gson:gson:2.10.1")
+            implementation("androidx.compose.ui:ui-tooling:1.6.8")
         }
 
 
@@ -61,6 +70,7 @@ kotlin {
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.navigation.compose)
             implementation(libs.androidx.constraintlayout.compose)
+
             implementation ("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha02")
 
 

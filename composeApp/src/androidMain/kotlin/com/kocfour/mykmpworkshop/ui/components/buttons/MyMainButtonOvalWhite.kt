@@ -3,11 +3,13 @@ package com.kocfour.mykmpworkshop.ui.components.buttons
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.intl.Locale
@@ -31,7 +33,7 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
  * @param contentDescription This parameter is used for automation test to identify textview component by contentDescriptor. Default value of content descriptor is text you set to KKTextView
  */
 @Composable
-fun MyMainButton(
+fun MyMainButtonOvalWhite(
     buttonTitle: String,
     isEnable: Boolean = true,
     contentDescription: String = buttonTitle,
@@ -42,27 +44,24 @@ fun MyMainButton(
 ) {
 
     val buttonColors = ButtonDefaults.buttonColors(
-        containerColor = PrimaryBlueTextColor,
-        contentColor = WhiteColor,
-        disabledContainerColor = PrimaryBlueTextColor.copy(alpha = 0.8F),
+        containerColor = Color.White,
+        contentColor = Color.Black,
+        disabledContainerColor = Color.White.copy(alpha = 0.8F),
         disabledContentColor = WhiteDisableColor
     )
 
 
     Box(
         modifier = modifier
-            .fillMaxWidth()
-            .height(50.dp)
             .semantics { this.contentDescription = contentDescription }
     ) {
 
 
         Button(modifier = Modifier
-            .height(60.dp)
-            .fillMaxWidth(),
+            .wrapContentSize(),
             enabled = isEnable,
             colors = buttonColors,
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(20.dp),
             elevation = ButtonDefaults.buttonElevation(
                 defaultElevation = 4.dp,
                 pressedElevation = 8.dp
@@ -72,7 +71,7 @@ fun MyMainButton(
             onClick = { onClick.invoke() }, content = @Composable {
                 MyTextView(text = if(isUpperCase){ buttonTitle.toUpperCase(Locale.current)}else{buttonTitle}
                     , textStyle = textStyle
-                    , textColor = WhiteColor)
+                    , textColor = Color.Black)
             }
         )
     }
@@ -81,7 +80,7 @@ fun MyMainButton(
 
 @Preview
 @Composable
-fun DefaultPreview() {
-    MyMainButton(buttonTitle = "Submit", isUpperCase = false)
+fun DefaultPreviewOvalButton() {
+    MyMainButtonOvalWhite(buttonTitle = "Submit", isUpperCase = false)
 }
 

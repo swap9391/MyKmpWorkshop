@@ -71,9 +71,11 @@
     <string name="text_gender">Gender</string>
     <string name="text_female">Female</string>
     <string name="text_update">Update</string>
-    <string name="text_user_weight_label">What is your weight (in kg)</string>
-    <string name="text_user_height_label">What is your height (in cm)</string>
-
+    <string name="text_user_weight_label">What is your weight (%1$s kg)</string>
+    <string name="text_user_height_label">What is your height (%1$s cm)</string>
+    <string name="set_your_goal_with_ai">Set your goal with AI</string>
+    <string name="text_address">Address</string>
+    <string name="text_hint_enter_city_state_country">Enter City,State,Country</string>
 
 
 

@@ -9,6 +9,7 @@ class AppConstants {
         const val KEY_NAVIGATE_VERIFICATION = "navigate_verification"
         const val KEY_NAVIGATE_VERIFICATION_SUCCESS = "navigate_verification_success"
         const val KEY_NAVIGATE_HOME = "navigate_home"
+        const val KEY_NAVIGATE_SET_GOAL = "navigate_set_goal"
 
         const val BACK_CLICK_ROUTE = "back_click_route"
 

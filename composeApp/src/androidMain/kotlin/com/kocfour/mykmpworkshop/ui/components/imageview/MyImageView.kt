@@ -11,13 +11,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.kocfour.mykmpworkshop.R
 
 @Composable
-fun MyImageView(modifier: Modifier = Modifier, imageRes:Int) {
+fun MyImageView(modifier: Modifier = Modifier, imageRes:Int,contentScale: ContentScale = ContentScale.FillWidth) {
     Box(modifier) {
         Image(
             painter = painterResource(id = imageRes),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.FillWidth
+            contentScale = contentScale
         )
     }
 }

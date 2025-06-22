@@ -1,6 +1,7 @@
 package com.kocfour.mykmpworkshop.ui.screens.home.tabs
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,7 +23,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavController
 import com.kocfour.mykmpworkshop.R
+import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
 import com.kocfour.mykmpworkshop.ui.components.imageview.MyImageView
@@ -37,7 +40,11 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
  * Composable function that represents the profile screen of the application.
  */
 @Composable
-fun ProfileTab() {
+fun ProfileTab(navController: NavController?=null) {
+
+    BackHandler {
+        navController?.navigate(AppConstants.KEY_NAVIGATE_HOME)
+    }
 
     Column(
         modifier = Modifier
@@ -62,7 +69,9 @@ fun ProfileTab() {
             isMenu = true,
             onMenuClick = { isUpdate.value = true },
             modifier = Modifier,
-            onBackPress = { Log.d("TAG", "Back Clicked") })
+            onBackPress = {
+                navController?.navigate(AppConstants.KEY_NAVIGATE_HOME)
+            })
 
 
         ConstraintLayout(
@@ -211,7 +220,7 @@ fun ProfileTab() {
                 })
 
             MyTextView(
-                text = stringResource(R.string.text_user_weight_label),
+                stringResource(id=R.string.text_user_weight_label,userWeight.floatValue.toInt()),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelWeight) {
                     top.linkTo(radioGender.bottom, margin = 13.dp)
@@ -226,13 +235,15 @@ fun ProfileTab() {
                         end.linkTo(parent.end)
 
                     },
-                value = userWeight.value,
-                range = 0f..200f, {}
-            )
+                value = userWeight.floatValue,
+                range = 0f..200f
+            ) {
+                userWeight.floatValue = it.toFloat()
+            }
 
 
             MyTextView(
-                text = stringResource(R.string.text_user_height_label),
+                text = stringResource(R.string.text_user_height_label,userHeight.floatValue.toInt()),
                 textStyle = MyTextStyle.TitleMedium16,
                 modifier = Modifier.constrainAs(labelHeight) {
                     top.linkTo(sliderWeight.bottom, margin = 13.dp)
@@ -247,9 +258,11 @@ fun ProfileTab() {
                         end.linkTo(parent.end)
 
                     },
-                value = userWeight.value,
-                range = 0f..200f, {}
-            )
+                value = userHeight.value,
+                range = 0f..200f
+            ) {
+                userHeight.floatValue = it.toFloat()
+            }
 
             //Todo Need to add text for Thumb
 
