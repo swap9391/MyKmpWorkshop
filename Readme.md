@@ -8,7 +8,6 @@ Figma Link - https://www.figma.com/design/SdYy5o0EEVbT5Npd96G1Zp/Water-Tracker-A
 
 
 ## Android screenshots
-
 ![App Screenshot](https://github.com/swap9391/MyKmpWorkshop/blob/main/screenshots/android-1.png)
 ![App Screenshot](https://github.com/swap9391/MyKmpWorkshop/blob/main/screenshots/android-2.png)
 ![App Screenshot](https://github.com/swap9391/MyKmpWorkshop/blob/main/screenshots/android-3.png)
