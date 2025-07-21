@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "706260122707",
-    "project_id": "watertracker-cmp",
-    "storage_bucket": "watertracker-cmp.firebasestorage.app"
+    "project_number": "730846351384",
+    "project_id": "water-tracker-kmp",
+    "storage_bucket": "water-tracker-kmp.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:706260122707:android:17d3a32afe48a9ea2ddaa6",
+        "mobilesdk_app_id": "1:730846351384:android:487468f74c461fb69d736d",
         "android_client_info": {
           "package_name": "com.kocfour.mykmpworkshop"
         }
@@ -15,26 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBJhVSYPH9B0Q3VZqRtDkM1by-bH_r5KYw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:706260122707:android:665ef7d05372132f2ddaa6",
-        "android_client_info": {
-          "package_name": "org.mycmpworkshop"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBJhVSYPH9B0Q3VZqRtDkM1by-bH_r5KYw"
+          "current_key": "AIzaSyAX93JI8nMMqKJWlVzCbQmCQvoDNDDTeIE"
         }
       ],
       "services": {

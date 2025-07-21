@@ -49,9 +49,18 @@ kotlin {
             implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
             implementation ("androidx.navigation:navigation-compose:2.7.7")
             implementation ("androidx.compose.material:material:1.6.8")
+
             // add the dependency for the Google AI client SDK for Android
+            // Firebase BOM (always use the platform BOM for Firebase dependencies)
             implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.15.0"))
+            // Firebase AI Logic (for Gemini access)
             implementation("com.google.firebase:firebase-ai")
+
+            // Firebase App Check (REQUIRED for production with Firebase AI Logic)
+            //implementation("com.google.firebase:firebase-appcheck-playintegrity") // Or another provider like firebase-appcheck-debug
+            implementation(libs.firebase.appcheck.debug)
+
+
             //Lottie
             implementation("com.airbnb.android:lottie-compose:6.4.1")
             //Gson

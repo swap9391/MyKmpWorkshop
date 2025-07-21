@@ -8,7 +8,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.ai.GenerativeModel
 import com.google.firebase.ai.ai
 import com.google.firebase.ai.type.GenerativeBackend
-import com.google.gson.Gson
+import com.google.firebase.ai.type.generationConfig
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,7 +22,21 @@ class SetGoalWithAIViewModel : ViewModel() {
     val uiState: StateFlow<WaterGoalUiState> = _uiState.asStateFlow()
 
     private var firebaseModel: GenerativeModel = Firebase.ai(backend = GenerativeBackend.googleAI())
-        .generativeModel("gemini-2.0-flash")
+        .generativeModel("gemini-2.0-flash", generationConfig = generationConfig {
+            temperature = 0f
+        })
+
+    /*val generativeModel = GenerativeModel(
+        // For text-only input, use the gemini-pro model
+        modelName = "gemini-pro",
+        // Access your API key as a Build Configuration variable (see "Set up your API key" above)
+        apiKey = "AIzaSyCboKfm-o13nI8zYdKwN1-vOoeKZeemgfw" ,
+                //"AIzaSyDttyjNMVYBPGoNuzCTV8WxdHcvlKpw_ek",
+        generationConfig = generationConfig {
+            temperature = 0f
+        }
+
+    )*/
 
     @SuppressLint("SuspiciousIndentation")
     fun generateGoalWithAI(params: SetGoalPromptModel) {
@@ -50,8 +64,8 @@ class SetGoalWithAIViewModel : ViewModel() {
 
 
                 Log.d("SET Goal Prompt :", prompt)
+              //  val response = generativeModel.generateContent(prompt)
                 val response = firebaseModel.generateContent(prompt)
-
                 var htmlString = response.text
                 if (!htmlString.isNullOrBlank()) {
                     // --- IMPORTANT: Strip Markdown code block delimiters ---
