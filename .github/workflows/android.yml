@@ -44,7 +44,7 @@ jobs:
         # This path is common. Adjust if your project structure or build flavors change it.
         # Check your app/build/outputs/apk/release/ directory after a successful build locally
         # to confirm the exact file name (e.g., app-release-unsigned.apk or app-release.apk)
-        path: app/build/outputs/apk/release/app-release.apk 
+        path: composeApp/build/outputs/apk/release/app-release.apk
         # If your APK is not yet signed by Gradle (e.g., you sign it later), it might be:
         # path: app/build/outputs/apk/release/app-release-unsigned.apk
         
