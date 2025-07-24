@@ -32,16 +32,28 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Configure Git
-      run: |
-              git config --local user.name "GitHub Actions Bot"
-              git config --local user.email "actions@github.com"
+    - name: Build with Gradle (Release APK)
+      # Use 'assembleRelease' for a signed release APK (if signing config is in build.gradle)
+      # Or 'assembleDebug' for a debug APK.
+      run: ./gradlew assembleRelease
 
-    - name: Check Git Remote
-      run: git remote -v
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4 # Use v4 for newer features and better performance
+      with:
+        name: app-release-apk
+        # This path is common. Adjust if your project structure or build flavors change it.
+        # Check your app/build/outputs/apk/release/ directory after a successful build locally
+        # to confirm the exact file name (e.g., app-release-unsigned.apk or app-release.apk)
+        path: app/build/outputs/apk/release/app-release.apk 
+        # If your APK is not yet signed by Gradle (e.g., you sign it later), it might be:
+        # path: app/build/outputs/apk/release/app-release-unsigned.apk
+        
+        # Optional: You can upload debug APK too
+    - name: Build with Gradle (Debug APK)
+      run: ./gradlew assembleDebug
 
-    - name: Check Branch Tracking
-      run: git branch -vv
-
-    - name: Check Git Status
-      run: git status    
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
