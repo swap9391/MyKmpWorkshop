@@ -10,9 +10,18 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,23 +30,55 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.R
-import com.kocfour.mykmpworkshop.ui.components.dropdown.MyDropDown
+import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
+import com.kocfour.mykmpworkshop.ui.components.dropdown.MyDropDown
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
 import com.kocfour.mykmpworkshop.ui.components.textView.HyperLinkTextView
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
+import com.kocfour.mykmpworkshop.usermanagement.data.request.User
+import com.kocfour.mykmpworkshop.usermanagement.presentation.APIState
+import com.kocfour.mykmpworkshop.usermanagement.presentation.SignUpViewModel
+import org.koin.compose.koinInject
 
 @Composable
-fun SignUpScreen(navHostController: NavHostController?=null) {
+fun SignUpScreen(
+    navHostController: NavHostController? = null,
+    viewModel: SignUpViewModel = koinInject()
+) {
 
     BackHandler {
         navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
     }
 
+    val apiState by viewModel.signUpState.collectAsState() // Observe API state
+    var showErrorDialog by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
+
+    val fullNameValue = remember { mutableStateOf("") }
+    val emailValue = remember { mutableStateOf("") }
+    val phoneNumberValue = remember { mutableStateOf("") }
+    val passwordValue = remember { mutableStateOf("") }
+
+    LaunchedEffect(apiState) {
+        when (apiState) {
+            is APIState.Success<*> -> {
+                val response = (apiState as APIState.Success<*>).data
+                navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
+            }
+
+            is APIState.Error -> {
+                errorMessage = (apiState as APIState.Error).message
+                showErrorDialog = true
+                //Toast.makeText(context, (apiState as APIState.Error).message, Toast.LENGTH_SHORT).show()
+            }
+
+            else -> Unit // Idle or Loading → do nothing special here
+        }
+    }
     ComposeWorkShopTheme {
         Box(
             contentAlignment = Alignment.TopCenter, modifier = Modifier
@@ -75,7 +116,9 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 25.dp, end = 25.dp),
-                    onValueChange = {}
+                    onValueChange = {
+                        fullNameValue.value = it
+                    }
                 )
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
@@ -87,15 +130,20 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 25.dp, end = 25.dp),
-                    onValueChange = {}
+                    onValueChange = {
+                        emailValue.value = it
+                    }
                 )
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
 
                 Row {
-                    MyDropDown(onCountryCodeSelected = {},
-                        modifier = Modifier.wrapContentSize()
-                            .align(Alignment.CenterVertically))
+                    MyDropDown(
+                        onCountryCodeSelected = {},
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .align(Alignment.CenterVertically)
+                    )
 
                     MyEditText(
                         text = "", hint = stringResource(R.string.text_enter_contact),
@@ -105,7 +153,9 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(start = 25.dp, end = 25.dp),
-                        onValueChange = {}
+                        onValueChange = {
+                            phoneNumberValue.value = it
+                        }
                     )
                 }
 
@@ -122,13 +172,26 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 25.dp, end = 25.dp),
-                    onValueChange = {}
+                    onValueChange = {
+                        passwordValue.value = it
+                    }
                 )
 
-                MyMainButton(buttonTitle = stringResource(R.string.text_button_create_account), modifier = Modifier.padding(25.dp),
+                MyMainButton(
+                    buttonTitle = stringResource(R.string.text_button_create_account),
+                    modifier = Modifier.padding(25.dp),
                     onClick = {
-                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
-                    },)
+                        val user = User(
+                            name = fullNameValue.value,
+                            email = emailValue.value,
+                            mobileNumber = phoneNumberValue.value,
+                            role = "USER",
+                            password = passwordValue.value
+                        )
+                        viewModel.signUp(user)
+                        //navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
+                    },
+                )
                 Spacer(modifier = Modifier.padding(top = 20.dp))
 
 
@@ -148,8 +211,8 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
                     )
                     HyperLinkTextView(
                         onClick = {
-                            navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN){
-                                popUpTo(AppConstants.KEY_NAVIGATE_SIGNUP){
+                            navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN) {
+                                popUpTo(AppConstants.KEY_NAVIGATE_SIGNUP) {
                                     inclusive = true
                                 }
                             }
@@ -161,10 +224,30 @@ fun SignUpScreen(navHostController: NavHostController?=null) {
 
             }
 
+            // Only show loading indicator
+            if (apiState is APIState.Loading) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(48.dp), // size of the circle
+                    color = MaterialTheme.colorScheme.primary, // use theme color
+                    strokeWidth = 4.dp
+                )
+            }
+
+            if (showErrorDialog) {
+                AlertDialog(
+                    onDismissRequest = { showErrorDialog = false },
+                    title = { MyTextView(text = "Error") },
+                    text = { MyTextView(text = errorMessage) },
+                    confirmButton = {
+                        MyMainButton(buttonTitle = "OK", onClick = { showErrorDialog = false })
+                    }
+                )
+            }
         }
 
     }
 }
+
 @Composable
 @Preview(showBackground = false)
 fun SignUpPreview() = SignUpScreen()

@@ -132,7 +132,7 @@ fun WelcomeSlideViewScreen(navHostController: NavHostController? = null) {
             onClick = {
                 when (pagerState.currentPage) {
                     2 -> {
-                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_LOGIN)
+                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_SIGNUP)
                     }
 
                     else -> {

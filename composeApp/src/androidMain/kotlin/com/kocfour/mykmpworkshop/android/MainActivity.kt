@@ -8,6 +8,7 @@ import androidx.compose.material3.Surface
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.kocfour.mykmpworkshop.di.appModule
 import com.kocfour.mykmpworkshop.ui.screens.home.HomeScreen
 import com.kocfour.mykmpworkshop.ui.screens.home.setgoalwithai.SetGoalWithAI
 import com.kocfour.mykmpworkshop.ui.screens.usermanagement.EmailVerificationScreen
@@ -17,10 +18,18 @@ import com.kocfour.mykmpworkshop.ui.screens.usermanagement.MySplashScreen
 import com.kocfour.mykmpworkshop.ui.screens.usermanagement.SignUpScreen
 import com.kocfour.mykmpworkshop.ui.screens.onboarding.WelcomeSlideViewScreen
 import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(appModule)
+        }
+
         setContent {
             ComposeWorkShopTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
@@ -32,8 +41,8 @@ class MainActivity : ComponentActivity() {
                         startDestination = AppConstants.KEY_NAVIGATE_SPLASH
                     ) {
                         composable(AppConstants.KEY_NAVIGATE_SPLASH) {
-                            //MySplashScreen(navHostController)
-                            HomeScreen(navHostController)
+                            MySplashScreen(navHostController)
+                            //HomeScreen(navHostController)
                         }
                         composable(AppConstants.KEY_NAVIGATE_LOGIN) {
                             LogInScreen(navHostController)
