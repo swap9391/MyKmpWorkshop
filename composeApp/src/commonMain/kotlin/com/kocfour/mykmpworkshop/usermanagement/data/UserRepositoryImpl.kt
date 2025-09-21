@@ -1,9 +1,8 @@
 package com.kocfour.mykmpworkshop.usermanagement.data
 
-import com.kocfour.mykmpworkshop.network.commonmodel.ApiResponse
+import com.kocfour.mykmpworkshop.network.util.APIState
 import com.kocfour.mykmpworkshop.usermanagement.data.request.User
 import com.kocfour.mykmpworkshop.usermanagement.domain.UserRepository
-import com.kocfour.mykmpworkshop.usermanagement.presentation.APIState
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.post

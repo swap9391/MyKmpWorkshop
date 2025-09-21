@@ -2,6 +2,7 @@ package com.kocfour.mykmpworkshop.usermanagement.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kocfour.mykmpworkshop.network.util.APIState
 import com.kocfour.mykmpworkshop.usermanagement.data.request.User
 import com.kocfour.mykmpworkshop.usermanagement.domain.CreateUserUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,7 +40,7 @@ class SignUpViewModel(private val registerUserUseCase: CreateUserUseCase): ViewM
         }
     }
 
-    private fun validateInput(user: User): Result<Unit> {
+    fun validateInput(user: User): Result<Unit> {
         if (user.name.isBlank()) {
             return Result.failure(Exception("Name cannot be empty"))
         }
@@ -53,10 +54,4 @@ class SignUpViewModel(private val registerUserUseCase: CreateUserUseCase): ViewM
     }
 }
 
-sealed class APIState<out T> {
-    data object Idle : APIState<Nothing>()
 
-    data class Loading(val isLoading: Boolean) : APIState<Nothing>()
-    data class Success<out T>(val data: T) : APIState<T>()
-    data class Error(val message: String) : APIState<Nothing>()
-}

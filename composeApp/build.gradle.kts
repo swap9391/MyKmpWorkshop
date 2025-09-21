@@ -10,6 +10,8 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     id("com.google.gms.google-services")
     kotlin("plugin.serialization") version "1.9.10"
+    id("org.jetbrains.kotlinx.kover") version "0.9.2"
+
 }
 
 kotlin {
@@ -99,6 +101,12 @@ kotlin {
 
         }
 
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))   // kotlin.test for multiplatform
+            }
+        }
+
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
         }
@@ -138,6 +146,22 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
+
+kover {
+    reports {
+        filters {
+            includes {
+                classes("com.kocfour.mykmpworkshop.usermanagement.presentation.*")
+                classes("com.kocfour.mykmpworkshop.usermanagement.domain.*")
+            }
+        }
+    }
+}
+
+tasks.register("coverageReport") {
+    dependsOn("koverHtmlReport")
+}
+
 dependencies {
     implementation(libs.androidx.ui.graphics.android)
     debugImplementation(libs.compose.ui.tooling)

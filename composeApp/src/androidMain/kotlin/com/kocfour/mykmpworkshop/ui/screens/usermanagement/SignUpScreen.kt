@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.android.AppConstants
+import com.kocfour.mykmpworkshop.network.util.APIState
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.dropdown.MyDropDown
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
@@ -40,7 +41,6 @@ import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
 import com.kocfour.mykmpworkshop.ui.theme.ComposeWorkShopTheme
 import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 import com.kocfour.mykmpworkshop.usermanagement.data.request.User
-import com.kocfour.mykmpworkshop.usermanagement.presentation.APIState
 import com.kocfour.mykmpworkshop.usermanagement.presentation.SignUpViewModel
 import org.koin.compose.koinInject
 
