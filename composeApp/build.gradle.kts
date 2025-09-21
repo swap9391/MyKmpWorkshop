@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -50,8 +51,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.compose.navigation)
             implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
-            implementation ("androidx.navigation:navigation-compose:2.7.7")
-            implementation ("androidx.compose.material:material:1.6.8")
+            implementation("androidx.navigation:navigation-compose:2.7.7")
+            implementation("androidx.compose.material:material:1.6.8")
 
             // add the dependency for the Google AI client SDK for Android
             // Firebase BOM (always use the platform BOM for Firebase dependencies)
@@ -87,7 +88,7 @@ kotlin {
             implementation(libs.navigation.compose)
             implementation(libs.androidx.constraintlayout.compose)
 
-            implementation ("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha02")
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha02")
 
             //Ktor
             implementation(libs.ktor.client.core)
@@ -95,15 +96,17 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
 
             // Koin Core for KMP
-            implementation("io.insert-koin:koin-core:4.1.1")
-            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
-            implementation("io.insert-koin:koin-compose:4.1.1") // or latest
+            implementation(libs.koin.core)
+            implementation(libs.lifecycle.viewmodel.compose)
+            implementation(libs.koin.compose) // or latest
 
         }
 
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))   // kotlin.test for multiplatform
+                implementation(libs.kotlinx.coroutines.test)
+                implementation(libs.kotlin.test.v1910)
             }
         }
 

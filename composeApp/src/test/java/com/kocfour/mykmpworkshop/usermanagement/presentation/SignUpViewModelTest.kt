@@ -2,12 +2,18 @@ package com.kocfour.mykmpworkshop.usermanagement.presentation
 
 import com.kocfour.mykmpworkshop.usermanagement.data.request.User
 import com.kocfour.mykmpworkshop.usermanagement.domain.MockCreateUserUseCase
-import junit.framework.TestCase.assertTrue
-import org.junit.Test
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
+import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+
 
 class SignUpViewModelTest {
     private val viewModel = SignUpViewModel(MockCreateUserUseCase())
+    private val testDispatcher = StandardTestDispatcher()
+    private val testScope = TestScope(testDispatcher)
+
 
     @Test
     fun `validateInput returns failure for empty name`() {
@@ -67,4 +73,6 @@ class SignUpViewModelTest {
         val result = viewModel.validateInput(user)
         assertTrue(result.isSuccess)
     }
+
+
 }
