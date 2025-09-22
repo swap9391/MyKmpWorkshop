@@ -104,9 +104,8 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))   // kotlin.test for multiplatform
                 implementation(libs.kotlinx.coroutines.test)
-                implementation(libs.kotlin.test.v1910)
+                implementation(libs.kotlin.test)
             }
         }
 

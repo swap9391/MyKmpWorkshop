@@ -7,6 +7,10 @@ import com.kocfour.mykmpworkshop.usermanagement.data.request.User
 import com.kocfour.mykmpworkshop.usermanagement.domain.CreateUserUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 class SignUpViewModel(private val registerUserUseCase: CreateUserUseCase): ViewModel() {
 
@@ -28,15 +32,17 @@ class SignUpViewModel(private val registerUserUseCase: CreateUserUseCase): ViewM
     // Sign-up function
     fun registerUser(user: User) {
         viewModelScope.launch {
-            _signUpState.value = APIState.Loading(true)
-            try {
-                val response = registerUserUseCase(user)
-                _signUpState.value = APIState.Success(response)
-            } catch (e: Exception) {
-                _signUpState.value = APIState.Error(e.message ?: "Unknown Error")
-            } finally {
-                _signUpState.value = APIState.Loading(false)
-            }
+            flow { emit(registerUserUseCase(user)) }
+                .onStart { _signUpState.value = APIState.Loading(true) }
+                .map { result ->
+                    result.fold(
+                        onSuccess = { APIState.Success(it) },
+                        onFailure = { APIState.Error(it.message ?: "Error") }
+                    )
+                }.onCompletion { _signUpState.value = APIState.Loading(false) }
+                .collect { state ->
+                    _signUpState.value = state
+                }
         }
     }
 

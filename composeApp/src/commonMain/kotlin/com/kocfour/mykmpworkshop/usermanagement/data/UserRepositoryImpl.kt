@@ -1,6 +1,7 @@
 package com.kocfour.mykmpworkshop.usermanagement.data
 
-import com.kocfour.mykmpworkshop.network.util.APIState
+import com.kocfour.mykmpworkshop.network.commonmodel.ApiResponse
+import com.kocfour.mykmpworkshop.network.util.handleApiCall
 import com.kocfour.mykmpworkshop.usermanagement.data.request.User
 import com.kocfour.mykmpworkshop.usermanagement.domain.UserRepository
 import io.ktor.client.HttpClient
@@ -16,15 +17,12 @@ class UserRepositoryImpl(
 ) : UserRepository {
     private val endpoint = "$baseUrl/add-user"
 
-    override suspend fun createUser(user: User): APIState<Any> {
-        return try {
-            APIState.Success(
+    override suspend fun createUser(user: User): Result<ApiResponse> {
+        return handleApiCall {
             client.post(endpoint) {
                 contentType(ContentType.Application.Json)
                 setBody(user)
-            }.body())
-        } catch (e: Exception) {
-            APIState.Error(e.message ?: "Unknown error")
+            }.body<ApiResponse>()
         }
     }
 }
