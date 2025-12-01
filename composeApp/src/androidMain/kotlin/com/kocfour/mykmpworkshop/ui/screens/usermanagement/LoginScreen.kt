@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.R
+import com.kocfour.mykmpworkshop.android.AppConstants
 import com.kocfour.mykmpworkshop.ui.components.buttons.MyMainButton
 import com.kocfour.mykmpworkshop.ui.components.buttons.OvalBorderButtonWithIcon
 import com.kocfour.mykmpworkshop.ui.components.edittext.MyEditText
@@ -139,7 +139,6 @@ fun LogInScreen(navHostController: NavHostController) {
                     )
                 }
                 Spacer(modifier = Modifier.padding(top = 20.dp))
-
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

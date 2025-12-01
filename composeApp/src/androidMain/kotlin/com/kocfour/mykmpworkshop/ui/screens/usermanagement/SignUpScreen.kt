@@ -188,8 +188,8 @@ fun SignUpScreen(
                             role = "USER",
                             password = passwordValue.value
                         )
-                        viewModel.signUp(user)
-                        //navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
+                        //Todo viewModel.signUp(user)
+                        navHostController?.navigate(AppConstants.KEY_NAVIGATE_VERIFICATION)
                     },
                 )
                 Spacer(modifier = Modifier.padding(top = 20.dp))

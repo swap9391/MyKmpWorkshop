@@ -24,8 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kocfour.mykmpworkshop.R
 import com.kocfour.mykmpworkshop.ui.components.textView.MyTextView
-import com.kocfour.mykmpworkshop.ui.theme.ColorLightPrimaryText
-import com.kocfour.mykmpworkshop.ui.theme.PrimaryBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryLightBlueContainerColor
 import com.kocfour.mykmpworkshop.ui.theme.PrimaryLightBlueTextColor
 import com.kocfour.mykmpworkshop.ui.theme.WhiteDisableColor
@@ -54,7 +52,7 @@ fun OvalBorderButtonWithIcon(
     Box(
         modifier = modifier
             .height(44.dp)
-            .semantics { this.contentDescription = contentDescription }
+           // .semantics { this.contentDescription = contentDescription }
     ) {
         Button(
             modifier = Modifier

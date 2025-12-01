@@ -34,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
@@ -59,7 +58,7 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
 
 @Composable
  fun SetGoalWithAI(navController: NavController?=null,
-                   viewModel: SetGoalWithAIViewModel = viewModel<SetGoalWithAIViewModel>()
+                   viewModel: SetGoalWithAIViewModel = viewModel()
 ) {
 
     BackHandler {
@@ -348,7 +347,6 @@ import com.kocfour.mykmpworkshop.ui.theme.textstyle.MyTextStyle
     }
 }
     @Composable
-    @Preview
     fun LoadingDialog() {
         Dialog(onDismissRequest = { /* Prevent dismissal by tapping outside during loading */ }) {
             Card(
@@ -440,13 +438,3 @@ fun ResultDialog(uiState: WaterGoalUiState, onDismissRequest: () -> Unit) {
         }
     )
 }
-
-/*
-@Composable
-fun HtmlText(html: String, modifier: Modifier = Modifier) {
-    AndroidView(
-        modifier = modifier,
-        factory = { context -> TextView(context) },
-        update = { it.text = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT) }
-    )
-}*/

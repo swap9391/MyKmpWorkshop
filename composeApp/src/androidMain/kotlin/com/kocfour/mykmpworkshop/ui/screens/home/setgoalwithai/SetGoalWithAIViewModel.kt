@@ -38,6 +38,7 @@ class SetGoalWithAIViewModel : ViewModel() {
 
     )*/
 
+
     @SuppressLint("SuspiciousIndentation")
     fun generateGoalWithAI(params: SetGoalPromptModel) {
         viewModelScope.launch {

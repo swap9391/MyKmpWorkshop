@@ -106,6 +106,9 @@ kotlin {
             dependencies {
                 implementation(libs.kotlinx.coroutines.test)
                 implementation(libs.kotlin.test)
+                implementation("org.mockito:mockito-core:5.11.0")
+                implementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+                implementation("org.mockito:mockito-inline:5.2.0")
             }
         }
 

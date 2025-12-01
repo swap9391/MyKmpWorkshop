@@ -4,14 +4,11 @@ import io.ktor.client.call.body
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.ServerResponseException
 import io.ktor.http.HttpStatusCode
+import io.ktor.utils.io.errors.IOException
 import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.io.IOException
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationException
-//import kotlinx.serialization.json.JsonDecodingException
 import kotlinx.serialization.MissingFieldException
-//import java.net.UnknownHostException
-//import java.io.IOException
 
 /**
  * Extension function to handle all API exceptions and convert them to Result
