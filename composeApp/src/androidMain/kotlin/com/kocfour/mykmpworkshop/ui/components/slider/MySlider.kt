@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
@@ -15,7 +16,6 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
@@ -52,22 +52,21 @@ fun MySlider(
                         MutableInteractionSource()
                     },
                     colors = SliderDefaults.colors(MaterialTheme.colorScheme.primaryContainer),
-                    thumbSize = DpSize(28.dp, 28.dp)
+                    thumbSize = DpSize(22.dp, 22.dp)
                 )
 
             },
             track = {
                 SliderDefaults.Track(
                     it,
-
+                    modifier = Modifier.height(12.dp),
+                    drawStopIndicator = null,
                     colors = SliderDefaults.colors(
                         activeTickColor = Color.Transparent,
                         inactiveTickColor = Color.Transparent,
                         activeTrackColor = ColorLightPrimaryBlue,
                         inactiveTrackColor = ColorSecondaryText
-                    ),
-                    modifier = Modifier
-                        .scale(1.1F, 2f)
+                    )
                 )
             },
             steps = range.endInclusive.toInt(),
@@ -87,12 +86,13 @@ fun MySlider(
     }
 }
 
+
 @Preview
 @Composable
 fun DefaultPreview() {
     MySlider(
         modifier = Modifier,
         value = 50f,
-        range = 0f..200f,{}
+        range = 0f..200f, {}
     )
 }

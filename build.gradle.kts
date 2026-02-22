@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.kotlinCocoapods) apply(false)
     alias(libs.plugins.room) apply(false)
+    alias(libs.plugins.kspCompose) apply(false)
     id("com.google.gms.google-services") version "4.4.2" apply false
 
 }

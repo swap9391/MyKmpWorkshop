@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kspCompose)
+    alias(libs.plugins.room)
     alias(libs.plugins.kotlinCocoapods)
     id("com.google.gms.google-services")
     kotlin("plugin.serialization") version "1.9.10"
@@ -175,4 +176,12 @@ tasks.register("coverageReport") {
 dependencies {
     implementation(libs.androidx.ui.graphics.android)
     debugImplementation(libs.compose.ui.tooling)
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosX64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
