@@ -32,6 +32,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            // Required when using NativeSQLiteDriver
+            linkerOpts.add("-lsqlite3")
         }
     }
 
@@ -100,6 +102,9 @@ kotlin {
             implementation(libs.lifecycle.viewmodel.compose)
             implementation(libs.koin.compose) // or latest
 
+            //Room database
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
         }
 
         val commonTest by getting {
